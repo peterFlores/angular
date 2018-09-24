@@ -1,0 +1,16 @@
+<form (submit)="addUser(newUser)">
+  <input type="text" #newUser>
+  <button>Agregar usuario</button>
+</form>
+<br />
+<ul>
+  <li *ngFor="let user of users">
+    {{ user }} <button (click)="deleteUser(user)">x</button> <button (click)="selectUser(user)">Modificar</button>
+  </li>
+</ul>
+
+<div *ngIf="activated">
+    <input type="text" [(ngModel)]="name" > <button (click)="updateUser()">Modificar</button> <br><br>
+    Name: {{ name }}
+
+</div>
