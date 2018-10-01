@@ -1,0 +1,124 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+     {{ title | uppercase }}
+  </h1>
+
+</div>
+<div class="container">
+  <hr>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">variable</th>
+      <th scope="col">pipe</th>
+      <th scope="col">product</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ nombre }} </td>
+      <td>upper case</td>
+      <td> {{ nombre | uppercase }}</td>
+    </tr>
+    <tr>
+      <td>{{ nombre }} </td>
+      <td>lower case</td>
+      <td> {{ nombre | lowercase }}</td>
+    </tr>
+    <tr>
+      <td>{{ nombre }} </td>
+      <td>slice 3</td>
+      <td> {{ nombre | slice:3 }}</td>
+    </tr>
+    <tr>
+      <td>{{ nombre }} </td>
+      <td>slice 1:3</td>
+      <td> {{ nombre | slice:1:3 }}</td>
+    </tr>
+
+    <tr>
+      <td>{{ PI }} </td>
+      <td>number</td>
+      <td> {{ PI | number: '3.0-0' }}</td>
+    </tr>
+
+    <tr>
+      <td>{{ PI }} </td>
+      <td>number 1.0-2</td>
+      <td> {{ PI | number: '1.0-2' }}</td>
+    </tr>
+
+    <tr>
+      <td>{{ PI }} </td>
+      <td>percent</td>
+      <td> {{ PI | percent }}</td>
+    </tr>
+    <tr>
+      <td>{{ PI }} </td>
+      <td>percent '2.0-4'</td>
+      <td> {{ PI | percent: '2.0-4' }}</td>
+    </tr>
+
+    <tr>
+      <td>{{ salario }} </td>
+      <td>currency</td>
+      <td> {{ salario | currency }}</td>
+    </tr>
+
+    <tr>
+      <td>{{ salario }} </td>
+      <td>currency euro</td>
+      <td> {{ salario | currency:'EUR':'code' }}</td>
+    </tr>
+    <tr>
+      <td>{{ salario }} </td>
+      <td>currency GTQ</td>
+      <td> {{ salario | currency:'GTQ':'symbol'}}</td>
+    </tr>
+    <tr>
+      <td>{{ valorPormise }} </td>
+      <td>async</td>
+      <td> {{ valorPormise | async}}</td>
+    </tr>
+    <tr>
+      <td>{{ fecha }} </td>
+      <td>date</td>
+      <td> {{ fecha | date:'medium'}}</td>
+    </tr>
+    <tr>
+      <td>{{ fecha }} </td>
+      <td>date MMMM-dd</td>
+      <td> {{ fecha | date:'MMMM - dd'}}</td>
+    </tr>
+    <tr>
+      <td>{{ nombre2 }} </td>
+      <td>capitalizado</td>
+      <td> {{ nombre2 | capitalizado }}</td>
+    </tr>
+    <tr>
+      <td>{{ nombre2 }} </td>
+      <td>capitalizado</td>
+      <td> {{ nombre2 | capitalizado:false }}</td>
+    </tr>
+
+    <tr>
+      <td>{{ nombre }} </td>
+      <td> contrasena: {{ activar }}
+        <br>
+        <button (click)="activar = !activar"  class="btn btn-outline-primary">ACTIVAR/DESACTIVAR</button>
+      </td>
+      <td> {{ nombre | password: activar }}</td>
+
+    </tr>
+  </tbody>
+</table>
+<br><br><br>
+<h3>json</h3>
+<pre>{{ users }} json</pre>
+<hr>
+<pre> {{ users | json }}</pre>
+
+<iframe width="560" height="315" [src]="codigo | DomSeguro:'https://www.youtube.com/embed/'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
