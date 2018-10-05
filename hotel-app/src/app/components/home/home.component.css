@@ -1,0 +1,78 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+::ng-deep section  {
+	padding: 60px 0;
+}
+::ng-deep section .section-title{
+	text-align:center;
+	color:#e13d5f;
+	margin-bottom:50px;
+	text-transform:uppercase;
+}
+::ng-deep #what-we-do {
+	background:#ffffff;
+}
+::ng-deep #what-we-do .card{
+	padding: 1rem!important;
+	border: none;
+	margin-bottom:1rem;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+::ng-deep #what-we-do .card:hover{
+	-webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+	-moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+	box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+}
+::ng-deep #what-we-do .card .card-block{
+	padding-left: 50px;
+    position: relative;
+}
+::ng-deep #what-we-do .card .card-block a{
+	color: #e13d5f !important;
+	font-weight:700;
+	text-decoration:none;
+}
+::ng-deep #what-we-do .card .card-block a i{
+	display:none;
+
+}
+::ng-deep #what-we-do .card:hover .card-block a i{
+	display:inline-block;
+	font-weight:700;
+
+}
+::ng-deep #what-we-do .card .card-block:before{
+	font-family: FontAwesome;
+    position: absolute;
+    font-size: 39px;
+    color: #e13d5f;
+    left: 0;
+	-webkit-transition: -webkit-transform .2s ease-in-out;
+    transition:transform .2s ease-in-out;
+}
+::ng-deep #what-we-do .card .block-1:before{
+    content: "\f0c0";
+}
+::ng-deep #what-we-do .card .block-2:before{
+    content: "\f2bb";
+}
+::ng-deep #what-we-do .card .block-3:before{
+    content: "\f00c";
+}
+::ng-deep #what-we-do .card .block-4:before{
+    content: "\f0d6";
+}
+::ng-deep#what-we-do .card .block-5:before{
+    content: "\f236";
+}
+::ng-deep #what-we-do .card .block-6:before{
+    content: "\f218";
+}
+::ng-deep #what-we-do .card:hover .card-block:before{
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}

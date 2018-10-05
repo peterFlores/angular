@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="card-block" [ngClass]="tarjeta.class">
+    <h3 class="card-title">{{ tarjeta.title }}</h3>
+    <p class="card-text"> {{ tarjeta.description }}</p>
+    <a [routerLink]="tarjeta.route" title="Click Aquí" class="read-more">Click Aquí<i class="fa fa-angle-double-right ml-2"></i></a>
+  </div>
+</div>
