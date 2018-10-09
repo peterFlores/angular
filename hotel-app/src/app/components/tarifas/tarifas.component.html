@@ -1,3 +1,24 @@
-<p>
-  tarifas works!
-</p>
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">Mantenimiento de tarifas</div>
+        <div class="card-body p-0">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarifa</th>
+                    <th scope="col">Costo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let tarifa of tarifas" >
+                    <th scope="row">{{ tarifa.idTarifa }}</th>
+                    <td>{{ tarifa.tarifa }}</td>
+                    <td>{{ tarifa.costo | number:'1.2-2' | currency:'GTQ'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+
+</div>
