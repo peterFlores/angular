@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,6 +15,7 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
 import { TarifasComponent } from './components/tarifas/tarifas.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
+import { ModalTarifaComponent } from './components/shared/modals/modal-tarifa/modal-tarifa.component';
 
 
 @NgModule({
@@ -26,12 +29,17 @@ import { ReservacionesComponent } from './components/reservaciones/reservaciones
       HabitacionesComponent,
       TarifasComponent,
       EmpleadosComponent,
-      ReservacionesComponent
+      ReservacionesComponent,
+      ModalTarifaComponent
+   ],
+   entryComponents: [
+     ModalTarifaComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
-      APP_ROUTING
+      APP_ROUTING,
+      NgbModule
    ],
    providers: [],
    bootstrap: [
