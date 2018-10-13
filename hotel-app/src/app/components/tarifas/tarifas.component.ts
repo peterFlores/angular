@@ -20,9 +20,23 @@ export class TarifasComponent implements OnInit {
     );
   }
 
-  open () {
+  open (tarifaSelected: Tarifa) {
+    console.log(tarifaSelected.idTarifa);
     const modalRef = this.modalService.open(ModalTarifaComponent);
-    modalRef.componentInstance.name = 'Peter';
+    modalRef.componentInstance.tarifa = tarifaSelected;
+    modalRef.componentInstance.delete.subscribe((emmitedValue) => {
+      this.deleteTarifa(emmitedValue);
+    });
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
+
+  deleteTarifa(id: number) {
+    this.tarifaSerive.deleteTarifaById(id);
+  }
+
 
 }
