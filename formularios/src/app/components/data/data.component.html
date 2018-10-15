@@ -1,0 +1,88 @@
+<h4>Formularios <small>data</small></h4>
+<hr>
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+
+  <div formGroupName="nombrecompleto">
+
+    <div class="form-group row" [ngClass]="{'error': (forma.get('nombrecompleto.nombre').valid && forma.get('nombrecompleto.nombre').touched)}">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control" type="text" [class.is-invalid]="!forma.get('nombrecompleto.nombre').valid && forma.get('nombrecompleto.nombre').touched"
+          placeholder="Nombre" formControlName="nombre">
+        <div class="invalid-feedback" *ngIf="forma.get('nombrecompleto.nombre').errors?.required">
+          El nombre es requerido
+        </div>
+        <div class="invalid-feedback" *ngIf="forma.get('nombrecompleto.nombre').errors?.minlength">
+          Almenos 3 caracteres
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+
+      <div class="form-group row" [ngClass]="{'error': (forma.get('nombrecompleto.apellido').valid && forma.get('nombrecompleto.apellido').touched)}">
+        <label class="col-2 col-form-label">apellido</label>
+        <div class="col-8">
+
+          <input class="form-control" type="text" [class.is-invalid]="!forma.get('nombrecompleto.apellido').valid && forma.get('nombrecompleto.apellido').touched"
+            placeholder="Apellido" formControlName="apellido">
+          <div class="invalid-feedback" *ngIf="forma.get('nombrecompleto.apellido').errors?.required">
+            El apellido es requerido
+          </div>
+          <div class="invalid-feedback" *ngIf="forma.get('nombrecompleto.apellido').errors?.minlength">
+            Almenos 3 caracteres
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">password1</label>
+    <div class="col-md-8">
+
+      <input class="form-control" type="password" placeholder="password" formControlName="password1">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">password2</label>
+    <div class="col-md-8">
+
+      <input class="form-control" type="password" placeholder="Repetir password" formControlName="password2">
+    </div>
+  </div>
+
+  <div class="form-group row">
+      <label class="col-2 col-form-label">Username</label>
+      <div class="col-md-8">
+
+        <input class="form-control" type="text" placeholder="username" formControlName="username">
+      </div>
+    </div>
+
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+  {{ forma.valid }}
+  <br>
+    {{ forma.status }}
+</form>
