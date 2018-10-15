@@ -15,7 +15,8 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
 import { TarifasComponent } from './components/tarifas/tarifas.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
-import { ModalTarifaComponent } from './components/shared/modals/modal-tarifa/modal-tarifa.component';
+import { ModalTarifaComponent } from './components/shared/modals/modal-tarifa/delete/modal-tarifa.component';
+import { ModalFormTarifaComponent } from './components/shared/modals/modal-tarifa/form/modal-form.component';
 
 
 @NgModule({
@@ -30,10 +31,12 @@ import { ModalTarifaComponent } from './components/shared/modals/modal-tarifa/mo
       TarifasComponent,
       EmpleadosComponent,
       ReservacionesComponent,
-      ModalTarifaComponent
+      ModalTarifaComponent,
+      ModalFormTarifaComponent
    ],
    entryComponents: [
-     ModalTarifaComponent
+     ModalTarifaComponent,
+     ModalFormTarifaComponent
    ],
    imports: [
       BrowserModule,

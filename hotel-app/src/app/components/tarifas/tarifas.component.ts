@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TarifaService } from '../../services/tarifa.service';
 import { Tarifa } from '../../models/tarifa';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalTarifaComponent } from '../shared/modals/modal-tarifa/modal-tarifa.component';
+import { ModalTarifaComponent } from '../shared/modals/modal-tarifa/delete/modal-tarifa.component';
+import { ModalFormTarifaComponent } from '../shared/modals/modal-tarifa/form/modal-form.component';
 
 @Component({
   selector: 'app-tarifas',
@@ -27,16 +28,16 @@ export class TarifasComponent implements OnInit {
     modalRef.componentInstance.delete.subscribe((emmitedValue) => {
       this.deleteTarifa(emmitedValue);
     });
-    modalRef.result.then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
-    });
   }
 
-  deleteTarifa(id: number) {
-    this.tarifaSerive.deleteTarifaById(id);
+  deleteTarifa(tarifa: Tarifa) {
+    this.tarifaSerive.deleteTarifaById(tarifa.idTarifa).subscribe(
+      (data) => {
+        this.tarifas = this.tarifas.filter(tf => tf !== tarifa);
+      }
+    );
   }
-
-
+  editOrSave(tarifa: Tarifa) {
+    const modalRef = this.modalService.open(ModalFormTarifaComponent);
+  }
 }
