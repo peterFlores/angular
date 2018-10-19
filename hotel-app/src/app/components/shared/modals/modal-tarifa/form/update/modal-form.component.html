@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Modificar tarifa</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onFormSubmit()">
+
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group" [ngClass]="{'error': (_tarifa.valid && _tarifa.touched)}">
+        <label for="tarifa">Tarifa</label>
+        <input type="text" [class.is-invalid]="!_tarifa.valid && _tarifa.touched" formControlName="tarifa" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_tarifa.errors?.required">
+          La tarifa es requerida
+        </div>
+        <div class="invalid-feedback" *ngIf="_tarifa.errors?.minlength">
+          Al menos 6 caracteres
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{'error': (_costo.valid && _costo.touched)}">
+        <label for="costo">Costo</label>
+        <input type="number" formControlName="costo" [class.is-invalid]="!_costo.valid && _costo.touched" class="form-control" />
+
+        <div class="invalid-feedback" *ngIf="_costo.errors?.required">
+            El monto es requerido
+          </div>
+          <div class="invalid-feedback" *ngIf="_costo.errors?.pattern">
+            Ingrese un monto valido
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+    <button [disabled]="!formulario.valid" type="submit" ngbAutofocus class="btn btn-primary">Save</button>
+  </div>
+
+</form>

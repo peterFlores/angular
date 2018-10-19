@@ -1,6 +1,13 @@
 <div class="container">
     <div class="card mt-4">
-        <div class="card-header">Mantenimiento de tarifas</div>
+        <div class="card-header">
+          <div class="row">
+              <div class="col-8">Mantenimiento de tarifas</div>
+              <div >
+                  <button type="button" class="btn btn-success" (click)="save()" >Nuevo</button>
+              </div>
+            </div>
+        </div>
         <div class="card-body p-0">
             <table class="table table-hover">
                 <thead>
@@ -17,10 +24,9 @@
                   <tr *ngFor="let tarifa of tarifas" >
                     <th scope="row">{{ tarifa.idTarifa }}</th>
                     <td>{{ tarifa.tarifa }}</td>
-                    <td>{{ tarifa.costo | number:'1.2-2' | currency:'GTQ'}}</td>
+                    <td>{{ tarifa.costo | currency:'GTQ'}}</td>
                     <td>
-
-                      <button type="button" class="btn btn-success" (click)="editOrSave(tarifa)" >Editar</button>
+                      <button type="button" class="btn btn-success" (click)="edit(tarifa)" >Editar</button>
                     </td>
                     <td>
                       <button type="button" class="btn btn-danger" (click)="open(tarifa)">Eliminar</button>

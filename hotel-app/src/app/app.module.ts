@@ -16,7 +16,12 @@ import { TarifasComponent } from './components/tarifas/tarifas.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 import { ModalTarifaComponent } from './components/shared/modals/modal-tarifa/delete/modal-tarifa.component';
-import { ModalFormTarifaComponent } from './components/shared/modals/modal-tarifa/form/modal-form.component';
+import { ModalFormTarifaComponent } from './components/shared/modals/modal-tarifa/form/update/modal-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalSaveComponent } from './components/shared/modals/modal-tarifa/form/save/modal-save.component';
+import { ModalDeleteComponent } from './components/shared/modals/modal-huesped/delete/modal-delete.component';
+import { HModalSaveComponent } from './components/shared/modals/modal-huesped/form/save/h-modal-save.component';
+import { HModalUpdateComponent } from './components/shared/modals/modal-huesped/form/update/h-modal-update.component';
 
 
 @NgModule({
@@ -32,17 +37,30 @@ import { ModalFormTarifaComponent } from './components/shared/modals/modal-tarif
       EmpleadosComponent,
       ReservacionesComponent,
       ModalTarifaComponent,
-      ModalFormTarifaComponent
+      ModalFormTarifaComponent,
+      ModalSaveComponent,
+
+      // Huesped modals
+      HModalSaveComponent,
+      ModalDeleteComponent,
+      HModalUpdateComponent
    ],
    entryComponents: [
      ModalTarifaComponent,
-     ModalFormTarifaComponent
+     ModalFormTarifaComponent,
+     ModalSaveComponent,
+     // HUESPEDES
+     ModalDeleteComponent,
+     HModalSaveComponent,
+     HModalUpdateComponent
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       APP_ROUTING,
-      NgbModule
+      NgbModule,
+      FormsModule,
+      ReactiveFormsModule
    ],
    providers: [],
    bootstrap: [

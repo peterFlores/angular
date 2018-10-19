@@ -1,0 +1,97 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Agregar huesped</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onFormSubmit()">
+
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group" [ngClass]="{'error': (_nombre.valid && _nombre.touched)}">
+        <label for="nombre">Nombre</label>
+        <input type="text" [class.is-invalid]="!_nombre.valid && _nombre.touched" formControlName="nombre" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_nombre.errors?.required">
+          El nombre es requerido
+        </div>
+        <div class="invalid-feedback" *ngIf="_nombre.errors?.minlength">
+          Al menos 3 caracteres
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': (_apellido.valid && _apellido.touched)}">
+        <label for="apellido">Apellido</label>
+        <input type="text" [class.is-invalid]="!_apellido.valid && _apellido.touched" formControlName="apellido" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_apellido.errors?.required">
+          El apellido es requerido
+        </div>
+        <div class="invalid-feedback" *ngIf="_apellido.errors?.minlength">
+          Al menos 3 caracteres
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': (_direccion.valid && _direccion.touched)}">
+        <label for="direccion">Direccion</label>
+        <input type="text" [class.is-invalid]="!_direccion.valid && _direccion.touched" formControlName="direccion" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_direccion.errors?.required">
+          La direccion es requerida
+        </div>
+        <div class="invalid-feedback" *ngIf="_direccion.errors?.minlength">
+          Al menos 5 caracteres
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': (_edad.valid && _edad.touched)}">
+        <label for="edad">Edad</label>
+        <input type="number" [class.is-invalid]="!_edad.valid && _edad.touched" formControlName="edad" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_edad.errors?.required">
+          La edad es requerida
+        </div>
+        <div class="invalid-feedback" *ngIf="_edad.errors?.pattern">
+          Ingrese una edad valida
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': (_genero.valid && _genero.touched)}">
+        <label for="genero">Genero</label>
+       <select class="form-control" [class.is-invalid]="!_genero.valid && _genero.touched" formControlName="genero" >
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+        </select>
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': (_telefono.valid && _telefono.touched)}">
+        <label for="telefono">Telefono</label>
+        <input type="number" [class.is-invalid]="!_telefono.valid && _telefono.touched" formControlName="telefono" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_telefono.errors?.required">
+          El telefono es requerido
+        </div>
+        <div class="invalid-feedback" *ngIf="_telefono.errors?.pattern">
+          Ingrese un telefono valido
+        </div>
+        <div class="invalid-feedback" *ngIf="_telefono.errors?.maxlength">
+          Ingrese un telefono valido
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': (_dpi.valid && _dpi.touched)}">
+        <label for="dpi">DPI</label>
+        <input type="text" [class.is-invalid]="!_dpi.valid && _dpi.touched" formControlName="dpi" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_dpi.errors?.required">
+          El dpi es requerida
+        </div>
+        <div class="invalid-feedback" *ngIf="_dpi.errors?.minlength">
+          Al menos 6 caracteres
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+    <button type="submit"  [disabled]="!formulario.valid" ngbAutofocus class="btn btn-primary">Save</button>
+  </div>
+
+</form>
