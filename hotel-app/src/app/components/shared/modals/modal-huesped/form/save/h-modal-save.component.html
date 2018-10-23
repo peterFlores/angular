@@ -55,6 +55,7 @@
       <div class="form-group" [ngClass]="{'error': (_genero.valid && _genero.touched)}">
         <label for="genero">Genero</label>
        <select class="form-control" [class.is-invalid]="!_genero.valid && _genero.touched" formControlName="genero" >
+          <option [ngValue]="null" disabled>Seleccione el genero</option>
           <option value="Hombre">Hombre</option>
           <option value="Mujer">Mujer</option>
         </select>

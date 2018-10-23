@@ -1,17 +1,17 @@
 
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-title">Huesped deletion</h4>
+  <h4 class="modal-title" id="modal-title">Rol deletion</h4>
   <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <p><strong>Are you sure you want to delete <span class="text-primary">{{huesped.nombre}} {{ huesped.apellido}}</span> registry?</strong></p>
-  <p>All information associated to this huesped will be permanently deleted.
+  <p><strong>Are you sure you want to delete <span class="text-primary">{{rol.nombreTipoEmpleado}}</span> registry?</strong></p>
+  <p>All information associated to this rol will be permanently deleted.
   <span class="text-danger">This operation can not be undone.</span>
   </p>
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
-  <button type="button" ngbAutofocus class="btn btn-danger" (click)="deleteHuesped()">Ok</button>
+  <button type="button" ngbAutofocus class="btn btn-danger" (click)="delete()">Ok</button>
 </div>

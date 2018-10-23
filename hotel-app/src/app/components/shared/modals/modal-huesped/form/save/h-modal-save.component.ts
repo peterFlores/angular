@@ -23,9 +23,9 @@ export class HModalSaveComponent implements OnInit {
       apellido: new FormControl('', [Validators.required, Validators.minLength(3)]),
       direccion: new FormControl('', [Validators.required, Validators.minLength(5)]),
       edad: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]),
-      genero: new FormControl(''),
+      genero: new FormControl(null, Validators.required),
       telefono: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'),
-                                    Validators.minLength(8), Validators.maxLength(8)]),
+                                    Validators.minLength(7), Validators.maxLength(9)]),
       dpi: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }

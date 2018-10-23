@@ -2,12 +2,12 @@
   <div class="card mt-4">
       <div class="card-header">
         <div class="row">
-            <div class="col-8">Mantenimiento de empleados</div>
+            <div class="col-8">Mantenimiento de roles</div>
             <div >
                 <button type="button" class="btn btn-success btns" (click)="save()" >Nuevo</button>
+                <button type="button" class="btn btn-primary btns" [routerLink]="['/empleados']">Regresar</button>
 
-              <button type="button" class="btn btn-primary btns" [routerLink]="['/roles']">Roles</button>
-            </div>
+              </div>
           </div>
       </div>
       <div class="card-body p-0">
@@ -15,21 +15,24 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Direccion</th>
-                  <th scope="col">Telefono</th>
-                  <th scope="col">Email</th>
                   <th scope="col">Rol</th>
                   <th scope="col">Editar</th>
                   <th scope="col">Eliminar</th>
                 </tr>
               </thead>
               <tbody>
-
+                <tr *ngFor="let rol of roles" >
+                  <th scope="row">{{ rol.tipoEmpleadoID }}</th>
+                  <td>{{ rol.nombreTipoEmpleado }}</td>
+                  <td>
+                    <button type="button" class="btn btn-success" (click)="edit(rol)" >Editar</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="delete(rol)">Eliminar</button>
+                  </td>
+                </tr>
               </tbody>
             </table>
       </div>
     </div>
-
 </div>

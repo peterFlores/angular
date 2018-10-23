@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Editar Rol</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onFormSubmit()">
+
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group" [ngClass]="{'error': (_nombreTipoEmpleado.valid && _nombreTipoEmpleado.touched)}">
+        <label for="Rol">Rol</label>
+        <input type="text" [class.is-invalid]="!_nombreTipoEmpleado.valid && _nombreTipoEmpleado.touched" formControlName="nombreTipoEmpleado" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_nombreTipoEmpleado.errors?.required">
+          El rol es requerido
+        </div>
+        <div class="invalid-feedback" *ngIf="_nombreTipoEmpleado.errors?.minlength">
+          Al menos 6 caracteres
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+    <button type="submit"  [disabled]="!formulario.valid" ngbAutofocus class="btn btn-primary">Save</button>
+  </div>
+
+</form>

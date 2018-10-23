@@ -6,6 +6,7 @@ import { HuespedesComponent } from './components/huespedes/huespedes.component';
 import { ReservacionesComponent } from './components/reservaciones/reservaciones.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { TarifasComponent } from './components/tarifas/tarifas.component';
+import { RolesComponent } from './components/roles/roles.component';
 
 const ROUTES: Routes = [
   {  path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const ROUTES: Routes = [
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'empleados', component: EmpleadosComponent },
   { path: 'tarifas', component: TarifasComponent },
+  { path: 'roles', component: RolesComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

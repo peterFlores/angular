@@ -22,6 +22,10 @@ import { ModalSaveComponent } from './components/shared/modals/modal-tarifa/form
 import { ModalDeleteComponent } from './components/shared/modals/modal-huesped/delete/modal-delete.component';
 import { HModalSaveComponent } from './components/shared/modals/modal-huesped/form/save/h-modal-save.component';
 import { HModalUpdateComponent } from './components/shared/modals/modal-huesped/form/update/h-modal-update.component';
+import { RolesComponent } from './components/roles/roles.component';
+import { RmodalDeleteComponent } from './components/shared/modals/modal-rol/rmodal-delete/rmodal-delete.component';
+import { RmodalSaveComponent } from './components/shared/modals/modal-rol/rmodal-save/rmodal-save.component';
+import { RmodalUpdateComponent } from './components/shared/modals/modal-rol/rmodal-update/rmodal-update.component';
 
 
 @NgModule({
@@ -43,7 +47,14 @@ import { HModalUpdateComponent } from './components/shared/modals/modal-huesped/
       // Huesped modals
       HModalSaveComponent,
       ModalDeleteComponent,
-      HModalUpdateComponent
+      HModalUpdateComponent,
+
+      // Rol modals
+
+      RolesComponent,
+      RmodalDeleteComponent,
+      RmodalSaveComponent,
+      RmodalUpdateComponent
    ],
    entryComponents: [
      ModalTarifaComponent,
@@ -52,7 +63,13 @@ import { HModalUpdateComponent } from './components/shared/modals/modal-huesped/
      // HUESPEDES
      ModalDeleteComponent,
      HModalSaveComponent,
-     HModalUpdateComponent
+     HModalUpdateComponent,
+
+
+      // Rol modals
+      RmodalDeleteComponent,
+      RmodalSaveComponent,
+      RmodalUpdateComponent
    ],
    imports: [
       BrowserModule,

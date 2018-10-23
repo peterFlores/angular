@@ -11,7 +11,7 @@ export class HuespedService {
 
 
   private urlEndPoint: string = environment.apiUrl;
-  private endPoint: string = `${environment}huespeds`;
+  private endPoint: string = `${this.urlEndPoint}huespeds`;
 
   private httpHeader = new HttpHeaders({'Content-Type': 'application/json'});
 
