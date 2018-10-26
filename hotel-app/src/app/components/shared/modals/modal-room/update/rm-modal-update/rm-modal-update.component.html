@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Editar habitacion</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onFormSubmit()">
+
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group" [ngClass]="{'error': (_room.valid && _room.touched)}">
+        <label for="room">Habitacion</label>
+        <input type="text" [class.is-invalid]="!_room.valid && _room.touched" formControlName="room" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_room.errors?.required">
+          La habitacion es requerida
+        </div>
+        <div class="invalid-feedback" *ngIf="_room.errors?.minlength">
+          Al menos 3 caracteres
+        </div>
+      </div>
+
+
+      <div class="form-group" [ngClass]="{'error': (_tarifa.valid && _tarifa.touched)}">
+        <label for="tarifa">Tarifa</label>
+       <select class="form-control" [class.is-invalid]="!_tarifa.valid && _tarifa.touched" formControlName="tarifa" [compareWith]="compareFn" >
+          <option value="" disabled>Seleccione la tarifa</option>
+          <option [ngValue]="tar" *ngFor="let tar of tarifas"> {{ tar.tarifa }} - {{ tar.costo | currency: 'GTQ'}}</option>
+        </select>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+    <button type="submit"  [disabled]="!formulario.valid" ngbAutofocus class="btn btn-primary">Save</button>
+  </div>
+
+</form>

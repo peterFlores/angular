@@ -22,8 +22,7 @@ export class HModalUpdateComponent implements OnInit {
       direccion: new FormControl('', [Validators.required, Validators.minLength(5)]),
       edad: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]),
       genero: new FormControl(null, Validators.required),
-      telefono: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'),
-                                    Validators.minLength(7), Validators.maxLength(9)]),
+      telefono: new FormControl('', [Validators.required, Validators.pattern('^([0-9]){8}$')]),
       dpi: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
 

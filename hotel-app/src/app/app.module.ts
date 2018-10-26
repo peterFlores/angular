@@ -26,6 +26,13 @@ import { RolesComponent } from './components/roles/roles.component';
 import { RmodalDeleteComponent } from './components/shared/modals/modal-rol/rmodal-delete/rmodal-delete.component';
 import { RmodalSaveComponent } from './components/shared/modals/modal-rol/rmodal-save/rmodal-save.component';
 import { RmodalUpdateComponent } from './components/shared/modals/modal-rol/rmodal-update/rmodal-update.component';
+import { EmodalDeleteComponent } from './components/shared/modals/modal-empleado/emodal-delete/emodal-delete.component';
+import { EmodalSaveComponent } from './components/shared/modals/modal-empleado/emodal-save/emodal-save.component';
+import { EmodalUpdateComponent } from './components/shared/modals/modal-empleado/emodal-update/emodal-update.component';
+import { RmModalDeleteComponent } from './components/shared/modals/modal-room/delete/rm-modal-delete/rm-modal-delete.component';
+import { RmModalSaveComponent } from './components/shared/modals/modal-room/save/rm-modal-save/rm-modal-save.component';
+import { RmModalUpdateComponent } from './components/shared/modals/modal-room/update/rm-modal-update/rm-modal-update.component';
+import { ReModalSaveComponent } from './components/shared/modals/modal-reservaciones/re-modal-save/re-modal-save.component';
 
 
 @NgModule({
@@ -54,7 +61,20 @@ import { RmodalUpdateComponent } from './components/shared/modals/modal-rol/rmod
       RolesComponent,
       RmodalDeleteComponent,
       RmodalSaveComponent,
-      RmodalUpdateComponent
+      RmodalUpdateComponent,
+
+      // Empleado modals
+      EmodalDeleteComponent,
+      EmodalSaveComponent,
+      EmodalUpdateComponent,
+
+      // Habitacion modals
+      RmModalDeleteComponent,
+      RmModalSaveComponent,
+      RmModalUpdateComponent,
+
+      // Reservaciones
+      ReModalSaveComponent
    ],
    entryComponents: [
      ModalTarifaComponent,
@@ -69,7 +89,20 @@ import { RmodalUpdateComponent } from './components/shared/modals/modal-rol/rmod
       // Rol modals
       RmodalDeleteComponent,
       RmodalSaveComponent,
-      RmodalUpdateComponent
+      RmodalUpdateComponent,
+
+      // Empleado modals
+      EmodalDeleteComponent,
+      EmodalSaveComponent,
+      EmodalUpdateComponent,
+
+      // Habitacion modals
+      RmModalDeleteComponent,
+      RmModalSaveComponent,
+      RmModalUpdateComponent,
+
+      // Reservaciones
+      ReModalSaveComponent
    ],
    imports: [
       BrowserModule,

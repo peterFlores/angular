@@ -26,7 +26,21 @@
                 </tr>
               </thead>
               <tbody>
-
+                <tr *ngFor="let empl of empleados" >
+                  <th scope="row">{{ empl.idUsuario }}</th>
+                  <td>{{ empl.nombreUsuario }}</td>
+                  <td>{{ empl.apellidoUsuario }}</td>
+                  <td>{{ empl.direccionUsuario }}</td>
+                  <td>{{ empl.telefonoUsuario }}</td>
+                  <td>{{ empl.emailUsuario }}</td>
+                  <td>{{ empl.tipoEmpleado.nombreTipoEmpleado }}</td>
+                  <td>
+                    <button type="button" class="btn btn-success" (click)="edit(empl)" >Editar</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="delete(empl)">Eliminar</button>
+                  </td>
+                </tr>
               </tbody>
             </table>
       </div>

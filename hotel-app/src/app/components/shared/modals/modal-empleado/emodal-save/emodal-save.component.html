@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title" id="modal-title">Agregar huesped</h4>
+  <h4 class="modal-title" id="modal-title">Agregar empleado</h4>
   <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -10,7 +10,7 @@
     <div class="container">
       <div class="form-group" [ngClass]="{'error': (_nombre.valid && _nombre.touched)}">
         <label for="nombre">Nombre</label>
-        <input type="text" [class.is-invalid]="!_nombre.valid && _nombre.touched" formControlName="nombre" class="form-control" />
+        <input type="text" [class.is-invalid]="!_nombre.valid && _nombre.touched" formControlName="nombreUsuario" class="form-control" />
         <div class="invalid-feedback" *ngIf="_nombre.errors?.required">
           El nombre es requerido
         </div>
@@ -21,7 +21,7 @@
 
       <div class="form-group" [ngClass]="{'error': (_apellido.valid && _apellido.touched)}">
         <label for="apellido">Apellido</label>
-        <input type="text" [class.is-invalid]="!_apellido.valid && _apellido.touched" formControlName="apellido" class="form-control" />
+        <input type="text" [class.is-invalid]="!_apellido.valid && _apellido.touched" formControlName="apellidoUsuario" class="form-control" />
         <div class="invalid-feedback" *ngIf="_apellido.errors?.required">
           El apellido es requerido
         </div>
@@ -32,7 +32,7 @@
 
       <div class="form-group" [ngClass]="{'error': (_direccion.valid && _direccion.touched)}">
         <label for="direccion">Direccion</label>
-        <input type="text" [class.is-invalid]="!_direccion.valid && _direccion.touched" formControlName="direccion" class="form-control" />
+        <input type="text" [class.is-invalid]="!_direccion.valid && _direccion.touched" formControlName="direccionUsuario" class="form-control" />
         <div class="invalid-feedback" *ngIf="_direccion.errors?.required">
           La direccion es requerida
         </div>
@@ -41,29 +41,13 @@
         </div>
       </div>
 
-      <div class="form-group" [ngClass]="{'error': (_edad.valid && _edad.touched)}">
-        <label for="edad">Edad</label>
-        <input type="number" [class.is-invalid]="!_edad.valid && _edad.touched" formControlName="edad" class="form-control" />
-        <div class="invalid-feedback" *ngIf="_edad.errors?.required">
-          La edad es requerida
-        </div>
-        <div class="invalid-feedback" *ngIf="_edad.errors?.pattern">
-          Ingrese una edad valida
-        </div>
-      </div>
 
-      <div class="form-group" [ngClass]="{'error': (_genero.valid && _genero.touched)}">
-        <label for="genero">Genero</label>
-       <select class="form-control" [class.is-invalid]="!_genero.valid && _genero.touched" formControlName="genero" >
-          <option [ngValue]="null" disabled>Seleccione el genero</option>
-          <option value="Hombre">Hombre</option>
-          <option value="Mujer">Mujer</option>
-        </select>
-      </div>
+
+
 
       <div class="form-group" [ngClass]="{'error': (_telefono.valid && _telefono.touched)}">
         <label for="telefono">Telefono</label>
-        <input type="number" [class.is-invalid]="!_telefono.valid && _telefono.touched" formControlName="telefono" class="form-control" />
+        <input type="number" [class.is-invalid]="!_telefono.valid && _telefono.touched" formControlName="telefonoUsuario" class="form-control" />
         <div class="invalid-feedback" *ngIf="_telefono.errors?.required">
           El telefono es requerido
         </div>
@@ -72,17 +56,24 @@
         </div>
       </div>
 
-      <div class="form-group" [ngClass]="{'error': (_dpi.valid && _dpi.touched)}">
-        <label for="dpi">DPI</label>
-        <input type="text" [class.is-invalid]="!_dpi.valid && _dpi.touched" formControlName="dpi" class="form-control" />
-        <div class="invalid-feedback" *ngIf="_dpi.errors?.required">
-          El dpi es requerida
+      <div class="form-group" [ngClass]="{'error': (_email.valid && _email.touched)}">
+        <label for="email">Email</label>
+        <input type="email" [class.is-invalid]="!_email.valid && _email.touched" formControlName="emailUsuario" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_email.errors?.required">
+          El Email es requerido
         </div>
-        <div class="invalid-feedback" *ngIf="_dpi.errors?.minlength">
-          Al menos 6 caracteres
+        <div class="invalid-feedback" *ngIf="_email.errors?.pattern">
+          Ingrese un Email valido
         </div>
       </div>
 
+      <div class="form-group" [ngClass]="{'error': (_rol.valid && _rol.touched)}">
+        <label for="rol">Rol</label>
+       <select class="form-control" [class.is-invalid]="!_rol.valid && _rol.touched" formControlName="tipoEmpleado" >
+          <option [ngValue]="null" disabled>Seleccione el rol</option>
+          <option [ngValue]="rol" *ngFor="let rol of roles"> {{ rol.nombreTipoEmpleado }}</option>
+        </select>
+      </div>
 
 
     </div>
