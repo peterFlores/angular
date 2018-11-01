@@ -1,5 +1,5 @@
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Reservacion } from 'src/app/models/reservacion';
 import { ReservacionService } from 'src/app/services/reservacion.service';
 import { ReModalSaveComponent } from '../shared/modals/modal-reservaciones/re-modal-save/re-modal-save.component';
@@ -7,7 +7,8 @@ import { ReModalSaveComponent } from '../shared/modals/modal-reservaciones/re-mo
 @Component({
   selector: 'app-reservaciones',
   templateUrl: './reservaciones.component.html',
-  styleUrls: ['./reservaciones.component.css']
+  styleUrls: ['./reservaciones.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ReservacionesComponent implements OnInit {
 
@@ -22,9 +23,6 @@ export class ReservacionesComponent implements OnInit {
 
   save() {
     const modalRef = this.modalSetting(ReModalSaveComponent);
-    modalRef.componentInstance.agregarHuesped.subscribe((emmitedValue) => {
-      this.saveReservacion(emmitedValue);
-    });
   }
 
   saveReservacion(reservacion: Reservacion) {
@@ -32,6 +30,6 @@ export class ReservacionesComponent implements OnInit {
   }
 
   modalSetting(modal: any) {
-    return this.modalService.open(modal);
+    return this.modalService.open(modal,  {size: 'lg', windowClass: 'modal-xxl'});
   }
 }

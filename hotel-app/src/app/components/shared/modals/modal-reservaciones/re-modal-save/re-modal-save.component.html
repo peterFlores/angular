@@ -1,3 +1,50 @@
-<p>
-  re-modal-save works!
-</p>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Reservacion</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onFormSubmit()">
+
+  <div class="modal-body">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+            <div class="form-group" >
+                <app-date-picker (frDate)="setFrom($event)" (tDate)="setTo($event)"></app-date-picker>
+              </div>
+        </div>
+        <div class="col">
+          <div class="form-group" [ngClass]="{'error': (_huesped.valid && _huesped.touched)}" >
+              <ng-template #rt let-r="result" let-t="term">
+                  <ngb-highlight [result]="r.nombre + ' ' + r.apellido" [term]="t"></ngb-highlight>
+                </ng-template>
+              <label for="typeahead-basic">Huesped:</label>
+              <input id="typeahead-basic" type="text" [class.is-invalid]="!_huesped.valid && _huesped.touched" formControlName="huesped" placeholder="DPI del huesped..." [ngbTypeahead]="searchHuesped"  [resultTemplate]="rt" class="form-control" [inputFormatter]="formatter"/>
+
+              <div class="invalid-feedback" *ngIf="_huesped.errors?.required">
+                  El huesped es requerido
+              </div>
+          </div>
+          <div class="form-group" [ngClass]="{'error': (_room.valid && _room.touched)}">
+              <ng-template #rot let-r="result" let-t="term">
+                  <ngb-highlight [result]="r.room + ' Costo: Q.' + r.tarifa.costo" [term]="t"></ngb-highlight>
+                </ng-template>
+              <label for="typeahead-basic">Habitacion:</label>
+              <input id="typeahead-basic" type="text" [class.is-invalid]="!_room.valid && _room.touched" formControlName="room" placeholder="Habitacion..." [ngbTypeahead]="searchRoom" [resultTemplate]="rot" class="form-control" [inputFormatter]="formatterRoom"/>
+              <div class="invalid-feedback" *ngIf="_room.errors?.required">
+                  La habitacion es requerido
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+    <button type="submit" ngbAutofocus class="btn btn-primary">Save</button>
+  </div>
+
+</form>

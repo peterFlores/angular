@@ -20,6 +20,10 @@ export class RoomService {
     return this._httpClient.get<Room[]>(`${this.endPoint}`);
   }
 
+  getRoomsAvailable(): Observable<Room[]> {
+    return this._httpClient.get<Room[]>(`${this.endPoint}/availables`);
+  }
+
   updateRoom(room: Room): Observable<Room> {
     return this._httpClient.put<Room>(`${this.endPoint}/${room.idRoom}`, room, {headers: this.httpHeader});
   }

@@ -33,6 +33,7 @@ import { RmModalDeleteComponent } from './components/shared/modals/modal-room/de
 import { RmModalSaveComponent } from './components/shared/modals/modal-room/save/rm-modal-save/rm-modal-save.component';
 import { RmModalUpdateComponent } from './components/shared/modals/modal-room/update/rm-modal-update/rm-modal-update.component';
 import { ReModalSaveComponent } from './components/shared/modals/modal-reservaciones/re-modal-save/re-modal-save.component';
+import { DatePickerComponent } from './components/shared/date-picker/date-picker.component';
 
 
 @NgModule({
@@ -74,7 +75,9 @@ import { ReModalSaveComponent } from './components/shared/modals/modal-reservaci
       RmModalUpdateComponent,
 
       // Reservaciones
-      ReModalSaveComponent
+      ReModalSaveComponent,
+
+      DatePickerComponent
    ],
    entryComponents: [
      ModalTarifaComponent,
