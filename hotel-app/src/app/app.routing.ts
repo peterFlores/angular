@@ -7,11 +7,17 @@ import { ReservacionesComponent } from './components/reservaciones/reservaciones
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { TarifasComponent } from './components/tarifas/tarifas.component';
 import { RolesComponent } from './components/roles/roles.component';
+import { DetalleHuespedComponent } from './components/detalle-huesped/detalle-huesped.component';
+import { FacturaHuespedComponent } from './components/factura-huesped/factura-huesped.component';
 
 const ROUTES: Routes = [
   {  path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'huespedes', component: HuespedesComponent },
+  { path: 'huespedes/:id', component: DetalleHuespedComponent },
+  { path: 'huespedes/:id/factura', component: FacturaHuespedComponent },
+
+  { path: 'huespedes/:id/factura/:termino', component: FacturaHuespedComponent },
   { path: 'reservaciones', component: ReservacionesComponent },
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'empleados', component: EmpleadosComponent },

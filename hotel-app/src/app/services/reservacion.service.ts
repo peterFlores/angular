@@ -18,4 +18,12 @@ export class ReservacionService {
   getReservaciones(): Observable<Reservacion[]> {
     return this._httpClient.get<Reservacion[]>(this.endPoint);
   }
+
+  getReservacionesByHuesped(id: number): Observable<Reservacion[]> {
+    return this._httpClient.get<Reservacion[]>(`${this.endPoint}/${id}`);
+  }
+
+  saveReservacion(reservacion: Reservacion): Observable<Reservacion> {
+    return this._httpClient.post<Reservacion>(`${this.endPoint}`, reservacion, { headers: this.httpHeader});
+  }
 }

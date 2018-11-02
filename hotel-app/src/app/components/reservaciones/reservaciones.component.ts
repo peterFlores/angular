@@ -23,10 +23,13 @@ export class ReservacionesComponent implements OnInit {
 
   save() {
     const modalRef = this.modalSetting(ReModalSaveComponent);
+    modalRef.componentInstance.agregarReservacion.subscribe((emmitedValue) => {
+      this.saveReservacion(emmitedValue);
+    });
   }
 
   saveReservacion(reservacion: Reservacion) {
-
+    this.reservacionService.saveReservacion(reservacion).subscribe(() => this.ngOnInit());
   }
 
   modalSetting(modal: any) {

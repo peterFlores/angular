@@ -22,7 +22,7 @@
                   <th scope="col">DPI</th>
                   <th scope="col">Editar</th>
                   <th scope="col">Eliminar</th>
-
+                  <th scope="col">Detalle</th>
                 </tr>
               </thead>
               <tbody>
@@ -40,6 +40,9 @@
                   </td>
                   <td>
                     <button type="button" class="btn btn-danger" (click)="delete(huesped)">Eliminar</button>
+                  </td>
+                  <td>
+                    <button type="button" [routerLink]="['/huespedes', huesped.idHuesped]"  routerLinkActive="router-link-active"  class="btn btn-warning" >Ver</button>
                   </td>
                 </tr>
               </tbody>

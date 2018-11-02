@@ -3,11 +3,12 @@ import { Observable } from 'rxjs';
 import { Huespedes } from 'src/app/models/huesped';
 import { RoomService } from 'src/app/services/room.service';
 import { HuespedService } from 'src/app/services/huesped.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Room } from 'src/app/models/room';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/internal/operators';
 import { formatDate } from '@angular/common';
+import { Reservacion } from 'src/app/models/reservacion';
 
 @Component({
   selector: 'app-re-modal-save',
@@ -16,6 +17,7 @@ import { formatDate } from '@angular/common';
 })
 export class ReModalSaveComponent implements OnInit {
 
+  @Output() agregarReservacion = new EventEmitter<Reservacion>();
   fromDate: string;
   toDate: string;
   huesped: Huespedes[];
@@ -53,16 +55,16 @@ export class ReModalSaveComponent implements OnInit {
      this._room.value.checkIn = this.fromDate;
      this._room.value.checkOut = this.toDate;
      console.log(this.formulario.value);
-    // this.agregarReservacion.emit(this.formulario.value);
+    this.agregarReservacion.emit(this.formulario.value);
      this.activeModal.close("Save Click");
      this.formulario.reset();
   }
 
   setFrom(date: any) {
-    this.fromDate  = formatDate(date, 'dd/MM/yyyy', 'en-US');
+    this.fromDate  = formatDate(date, 'yyyy-MM-dd', 'en-US');
   }
   setTo(date: any) {
-    this.toDate = formatDate(date, 'dd/MM/yyyy', 'en-US');
+    this.toDate = formatDate(date, 'yyyy-MM-dd', 'en-US');
   }
 
   searchHuesped = (text$: Observable<String>) => text$.pipe(

@@ -1,0 +1,46 @@
+<div class="container py-4">
+  <div class="card bg-light">
+    <div class="card-header">
+      Mantenimiento de factura
+      <button class="btn btn-success btn-xs pull-right">volver</button>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">
+
+      </h4>
+      <form>
+        <div class="form-group row">
+          <label for="buscar_producto" class="col-sm-2 col-form-label"
+            >Buscar producto: </label>
+          <div class="col-sm-6">
+            <input type="text" name="buscar_producto" id="buscar_producto"
+              class="form-control" />
+          </div>
+        </div>
+
+        <table id="cargarItemProductos"
+          class="table table-sm table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <h5>Total <span class="badge badge-secondary" id="gran_total">0</span></h5>
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <input type="submit"
+              class="btn btn-secondary" value="Guardar"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

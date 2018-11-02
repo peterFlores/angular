@@ -34,6 +34,8 @@ import { RmModalSaveComponent } from './components/shared/modals/modal-room/save
 import { RmModalUpdateComponent } from './components/shared/modals/modal-room/update/rm-modal-update/rm-modal-update.component';
 import { ReModalSaveComponent } from './components/shared/modals/modal-reservaciones/re-modal-save/re-modal-save.component';
 import { DatePickerComponent } from './components/shared/date-picker/date-picker.component';
+import { DetalleHuespedComponent } from './components/detalle-huesped/detalle-huesped.component';
+import { FacturaHuespedComponent } from './components/factura-huesped/factura-huesped.component';
 
 
 @NgModule({
@@ -77,7 +79,11 @@ import { DatePickerComponent } from './components/shared/date-picker/date-picker
       // Reservaciones
       ReModalSaveComponent,
 
-      DatePickerComponent
+      DatePickerComponent,
+
+      DetalleHuespedComponent,
+
+      FacturaHuespedComponent
    ],
    entryComponents: [
      ModalTarifaComponent,

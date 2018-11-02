@@ -21,6 +21,10 @@ export class HuespedService {
     return this._httpClient.get<Huespedes[]>(this.endPoint);
   }
 
+  getHuespedesById(id: number): Observable<Huespedes> {
+    return this._httpClient.get<Huespedes>(`${this.endPoint}/${id}`);
+  }
+
   updateHuesped(huesped: Huespedes): Observable<Huespedes> {
     return this._httpClient.put<Huespedes>(`${this.endPoint}/${huesped.idHuesped}`, huesped, {headers: this.httpHeader});
   }

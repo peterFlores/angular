@@ -1,0 +1,46 @@
+<div class="container py-4" *ngIf="huespedes" >
+  <div class="card bg-light">
+    <div class="card-header" >Detalle del huesped {{ huespedes.nombre }} {{ huespedes.apellido }}</div>
+    <div class="card-body">
+
+      <h4 class="card-title">
+        <button class="btn btn-primary" (click)="crearFactura()" >Crear Factura</button>
+      </h4>
+
+
+      <ul class="list-group list-group-flush"  >
+        <li class="list-group-item active" > {{ huespedes.nombre }} {{ huespedes.apellido}}</li>
+        <li class="list-group-item"> {{ huespedes.direccion }}</li>
+        <li class="list-group-item"> {{ huespedes.telefono }}</li>
+      </ul>
+
+
+      <table
+        class="table table-bordered table-striped my-4">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Serie</th>
+            <th>Factura</th>
+            <th>total</th>
+            <th>ver</th>
+            <th>Pagar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let factura of facturas" >
+            <td>{{ factura.serie }}</td>
+            <td>{{ factura.numfact }}</td>
+            <td>{{ factura.total | currency: 'GTQ' }}</td>
+            <td><button class="btn btn-warning" (click)="verDetalle(factura.idFactura)">Detalle</button>
+            </td>
+            <td><button class="btn btn-success">Pagar</button>
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+      <button class="btn btn-danger pull-right">Regresar</button>
+    </div>
+  </div>
+</div>
