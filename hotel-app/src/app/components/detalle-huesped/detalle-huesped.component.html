@@ -22,8 +22,6 @@
             <th>Serie</th>
             <th>Factura</th>
             <th>total</th>
-            <th>ver</th>
-            <th>Pagar</th>
           </tr>
         </thead>
         <tbody>
@@ -31,11 +29,8 @@
             <td>{{ factura.serie }}</td>
             <td>{{ factura.numfact }}</td>
             <td>{{ factura.total | currency: 'GTQ' }}</td>
-            <td><button class="btn btn-warning" (click)="verDetalle(factura.idFactura)">Detalle</button>
-            </td>
-            <td><button class="btn btn-success">Pagar</button>
-            </td>
-
+            <!-- <td><button class="btn btn-warning" (click)="verDetalle(factura.idFactura)">Detalle</button>
+            </td> -->
           </tr>
         </tbody>
 

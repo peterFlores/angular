@@ -9,6 +9,7 @@ import { TarifasComponent } from './components/tarifas/tarifas.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { DetalleHuespedComponent } from './components/detalle-huesped/detalle-huesped.component';
 import { FacturaHuespedComponent } from './components/factura-huesped/factura-huesped.component';
+import { ProductosComponent } from './components/productos/productos.component';
 
 const ROUTES: Routes = [
   {  path: 'home', component: HomeComponent },
@@ -23,6 +24,7 @@ const ROUTES: Routes = [
   { path: 'empleados', component: EmpleadosComponent },
   { path: 'tarifas', component: TarifasComponent },
   { path: 'roles', component: RolesComponent },
+  { path: 'productos', component: ProductosComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

@@ -19,4 +19,9 @@ export class FacturaService {
     console.log(id);
     return this._httpClient.get<Factura[]>(`${this.endPoint}/${id}`);
   }
+
+  saveFacturaByHuesped(id: number, factura: Factura): Observable<Factura> {
+    console.log(factura);
+    return this._httpClient.post<Factura>(`${this.endPoint}/${id}`, factura, { headers: this.httpHeader });
+  }
 }

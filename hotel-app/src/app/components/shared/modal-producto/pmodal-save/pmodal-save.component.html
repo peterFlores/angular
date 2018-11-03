@@ -1,0 +1,39 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">Agregar producto</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="formulario" (ngSubmit)="onFormSubmit()">
+
+  <div class="modal-body">
+    <div class="container">
+      <div class="form-group" [ngClass]="{'error': (_producto.valid && _producto.touched)}">
+        <label for="producto">producto</label>
+        <input type="text" [class.is-invalid]="!_producto.valid && _producto.touched" formControlName="producto" class="form-control" />
+        <div class="invalid-feedback" *ngIf="_producto.errors?.required">
+          El producto es requerido
+        </div>
+        <div class="invalid-feedback" *ngIf="_producto.errors?.minlength">
+          Al menos 3 caracteres
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{'error': (_costo.valid && _costo.touched)}">
+        <label for="costo">Costo</label>
+        <input type="number" formControlName="costo" [class.is-invalid]="!_costo.valid && _costo.touched" class="form-control" />
+
+        <div class="invalid-feedback" *ngIf="_costo.errors?.required">
+            El monto es requerido
+          </div>
+          <div class="invalid-feedback" *ngIf="_costo.errors?.pattern">
+            Ingrese un monto valido
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.dismiss('cancel click')">Cancel</button>
+    <button type="submit"  [disabled]="!formulario.valid" ngbAutofocus class="btn btn-primary">Save</button>
+  </div>
+
+</form>

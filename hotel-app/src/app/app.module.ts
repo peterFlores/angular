@@ -36,6 +36,8 @@ import { ReModalSaveComponent } from './components/shared/modals/modal-reservaci
 import { DatePickerComponent } from './components/shared/date-picker/date-picker.component';
 import { DetalleHuespedComponent } from './components/detalle-huesped/detalle-huesped.component';
 import { FacturaHuespedComponent } from './components/factura-huesped/factura-huesped.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { PmodalSaveComponent } from './components/shared/modal-producto/pmodal-save/pmodal-save.component';
 
 
 @NgModule({
@@ -83,7 +85,11 @@ import { FacturaHuespedComponent } from './components/factura-huesped/factura-hu
 
       DetalleHuespedComponent,
 
-      FacturaHuespedComponent
+      FacturaHuespedComponent,
+
+      ProductosComponent,
+
+      PmodalSaveComponent
    ],
    entryComponents: [
      ModalTarifaComponent,
@@ -111,7 +117,10 @@ import { FacturaHuespedComponent } from './components/factura-huesped/factura-hu
       RmModalUpdateComponent,
 
       // Reservaciones
-      ReModalSaveComponent
+      ReModalSaveComponent,
+
+      
+      PmodalSaveComponent
    ],
    imports: [
       BrowserModule,

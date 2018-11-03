@@ -36,6 +36,12 @@ export class HomeTarjetaService {
       description: "With supporting text below as a natural lead-in to additional content.",
       class: "block-5",
       route: "/habitaciones"
+    },
+    {
+      title: "Productos",
+      description: "With supporting text below as a natural lead-in to additional content.",
+      class: "block-6",
+      route: "/productos"
     }
   ];
 

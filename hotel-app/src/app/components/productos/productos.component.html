@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="card mt-4">
+      <div class="card-header">
+        <div class="row">
+            <div class="col-8">Mantenimiento de productos</div>
+            <div >
+                <button type="button" class="btn btn-success" (click)="save()" >Nuevo</button>
+            </div>
+          </div>
+      </div>
+      <div class="card-body p-0">
+          <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Costo</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos" >
+                  <th scope="row">{{ producto.idProducto }}</th>
+                  <td>{{ producto.producto }}</td>
+                  <td>{{ producto.costo | currency:'GTQ'}}</td>
+
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+
+</div>

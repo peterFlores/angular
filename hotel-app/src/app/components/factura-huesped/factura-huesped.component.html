@@ -2,19 +2,21 @@
   <div class="card bg-light">
     <div class="card-header">
       Mantenimiento de factura
-      <button class="btn btn-success btn-xs pull-right">volver</button>
+      <button class="btn btn-success btn-xs pull-right" (click)="back()">volver</button>
     </div>
     <div class="card-body">
       <h4 class="card-title">
 
       </h4>
-      <form>
+      <form (ngSubmit)="onSubmit()" >
         <div class="form-group row">
           <label for="buscar_producto" class="col-sm-2 col-form-label"
             >Buscar producto: </label>
           <div class="col-sm-6">
-            <input type="text" name="buscar_producto" id="buscar_producto"
-              class="form-control" />
+            <ng-template #rt let-r="result" let-t="term">
+              <ngb-highlight [result]="r.producto + ' ' + ' GTQ' + r.costo" [term]="t"></ngb-highlight>
+            </ng-template>
+          <input id="typeahead-basic" type="text" #input (selectItem)="selectedItem($event, input)" placeholder="Producto..." [ngbTypeahead]="searchProducto"  [resultTemplate]="rt" class="form-control" [inputFormatter]="formatter"/>
           </div>
         </div>
 
@@ -25,14 +27,22 @@
               <th>Nombre</th>
               <th>Precio</th>
               <th>Cantidad</th>
-              <th>Total</th>
+              <th>Subtotal</th>
               <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
+            <tr *ngFor="let item of items" >
+                  <td>{{ item.nombre }}</td>
+                  <td>{{ item.precio | currency: 'GTQ' }}</td>
+                  <td><input type="number" value="{{item.cantidad}}" min="1" (change)="change($event, item.idItem)"
+                     class="form-control col-sm-4"> </td>
+                  <td>{{ item.total | currency: 'GTQ'}}</td>
+                  <td><button class="btn btn-danger" (click)="delete(item.idItem)">Eliminar</button></td>
+            </tr>
           </tbody>
         </table>
-        <h5>Total <span class="badge badge-secondary" id="gran_total">0</span></h5>
+        <h5>Total <span class="badge badge-secondary" *ngIf="total !== 0"  id="gran_total">{{ total | currency:'GTQ' }}</span></h5>
 
         <div class="form-group row">
           <div class="col-sm-6">
